@@ -23,6 +23,7 @@ String TITLE = "The Simpsons characters\nwith the most total lines";
 
 
 float TEXT_ALPHA = 1.0; // Set this to 0.6 for "less-harsh" black, if you want the barriers to stand out more. Set it to 1.0 if you like the fully black text.
+double BARRIER_SCALE_UP = 1.0; // Make this higher if you want all barriers to look bigger, and lower if you want them smaller.
 double PLAY_SPEED = 1.0/90.0; // how many "years" pass per frame?
 int PANEL_COUNT_W = 10;
 int PANEL_COUNT_H = 6;
@@ -180,7 +181,7 @@ void drawPath(double[] barriers){
       drawBarrier(r,1,PATH_CURVE);
       fill(BARRIER_COLOR);
       double fac = Math.min(0.93,Math.sqrt(barriers[r]));
-      drawBarrier(r,fac,0);
+      drawBarrier(r,fac*BARRIER_SCALE_UP,0);
     }
     if(r >= 1 && r < COUNT-1){
       drawInnerCurve(r);
