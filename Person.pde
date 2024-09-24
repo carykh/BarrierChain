@@ -128,15 +128,18 @@ class Person{
     
     panel.fill(0,0,0,255*TEXT_ALPHA);
     panel.textAlign(CENTER);
-    float size1 = 32;
+    println(PANEL_CMH);
+    float size1 = (float)(PANEL_CMH*0.304761904);
+    float y_shift_1 = (float)(PANEL_CMH*0.54285714);
+    float y_shift_2 = (float)(PANEL_CMH*0.16190476);
     panel.textFont(font,size1);
     
     double val = displaySlowedArrLookup(values,currentYear);
     String val_s = commafy((int)Math.round(val));
-    panel.text(val_s,(float)(PANEL_CMW/2),(float)CARD_MARGIN+57);
+    panel.text(val_s,(float)(PANEL_CMW/2),(float)CARD_MARGIN+y_shift_1);
     float size2 = min(size1,(float)(0.95*size1*PANEL_CMW/panel.textWidth(name)));
     panel.textFont(font,size2);
-    panel.text(name,(float)(PANEL_CMW/2),(float)CARD_MARGIN+17);
+    panel.text(name,(float)(PANEL_CMW/2),(float)CARD_MARGIN+y_shift_2);
     
     panel.endDraw();
     dImage(panel,CARD_MARGIN,CARD_MARGIN,PANEL_CMW,PANEL_CMH);
